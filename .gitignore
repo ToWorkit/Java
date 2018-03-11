@@ -40,3 +40,4 @@ RemoteSystemsTempFiles/
 bin/
 .classpath
 .project
+*.class
