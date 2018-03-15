@@ -17,6 +17,10 @@ public class Init {
 		// 两个子类使用两次多态调用进行实例化
 		Animal a1 = new Cat();
 		Animal a2 = new Dog();
+		
+		// 成员变量，参考上面说的
+		System.out.println(a1.a); // 2
+		
 		// 调用子类和父类公有的方法，执行的是子类重写的方法, 不能调用子类独有的方法
 		a1.eat();
 		a2.eat();
