@@ -22,7 +22,7 @@ public class GenericDemo {
 		Collection coll = new ArrayList<>();
 		coll.add("abc");
 		coll.add("bbc");
-		// 发生了自动装箱，转为了 Integer 类型，不可以强转String，int类型是可以强转String的 -> 待查证
+		// 发生了自动装箱，转为了 Integer 类型，不可以强转String，int类型是可以强转String的 
 		coll.add(123);
 		
 		Iterator it = coll.iterator();
