@@ -16,16 +16,17 @@ public class ReflectDemo02 {
 		// 获取class文件对象
 		Class c = Class.forName("demo01.Person");
 		
-		// 获取Person类中的构造方法
+		// 获取Person类中所有的构造方法(有参和空参)
 		Constructor[] ct = c.getConstructors();
 		for (Constructor c_: ct) {
 			System.out.println(c_);
 		}
 		
-		// 获取指定的构造方法 空参构造
+		// 获取空参构造方法 
 		// ... 可变参数
 		// public Constructor<T> getConstructor(Class<?>... parameterTypes)
 		Constructor con = c.getConstructor();
+		System.out.println(con);
 		// 获取构造方法
 		Object obj = con.newInstance();
 		System.out.println(obj);
