@@ -12,10 +12,18 @@ public class Test {
 		
 		arr = null;
 		// 空指针异常
-		System.out.println(arr[1]);
+//		System.out.println(arr[1]);
 		
 		// 二维数组
 		int[][] arr_2 = {{2, 3, 4}, {1, 2}, {0, 3, 9}};
 		System.out.println(arr_2[1][0]);
+		
+		Integer i = 8;
+		// Integer 类型，不可以强转String
+//		String s = (String)i;
+		// toString可以
+		String s = i.toString();
+		System.out.println(s);
+		
 	}
 }
