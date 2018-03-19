@@ -1,8 +1,15 @@
 package demo01;
 
 public class Person {
+	// 修饰符 默认为default
 	public String name;
 	public int age;
+	// 测试变量配合 06
+	private int id;
+	protected int test_01;
+	
+	// 最终变量，常量，不允许修改
+	final int id_01 = 1;
 	
 	// 自身的方法
 	public void eat() {

@@ -9,6 +9,7 @@ public class Person {
 		// 隐式代码 this(4) 
 		System.out.println("父类的无参构造方法");
 		// 如果构造方法中有变量，走构造
+		// 优先执行构造方法
 		a = 4;
 	}
 

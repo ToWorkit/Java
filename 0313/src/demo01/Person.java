@@ -10,7 +10,7 @@ public class Person {
 		this.age = age;
 	}
 	
-	// 开放静态成员变量
+	// 开放私有成员变量
 	public String getName() {
 		return name;
 	}
