@@ -4,6 +4,8 @@ import java.util.HashSet;
 
 public class HashDemo01 {
 	public static void main(String[] args) {
+/*		Person01.id = 1;
+		System.out.println(Person01.id);*/
 		// 同级目录不需要引包
 		HashSet<Person01> p = new HashSet<Person01>();
 		// 构造方法传参

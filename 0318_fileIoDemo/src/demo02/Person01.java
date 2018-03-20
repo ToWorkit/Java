@@ -3,6 +3,7 @@ package demo02;
 public class Person01 {
 	private String name;
 	private int age;
+	public int id;
 	
 	// 构造方法
 	public Person01() {
