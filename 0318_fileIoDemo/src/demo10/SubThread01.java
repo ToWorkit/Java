@@ -9,6 +9,6 @@ public class SubThread01 extends Thread{
 	// 通过 Thread 类中的getName方法获取线程的名称
 	@Override
 	public void run() {
-		System.out.println(super.getName());
+		System.out.println(super.getName() + "--");
 	}
 }

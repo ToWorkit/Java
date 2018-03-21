@@ -10,7 +10,7 @@ public class ThreadDemo01 {
 		st.start();
 		
 		// 自定义线程名
-		st.setName("自定线程名");
+		st.setName("自定义线程名");
 		
 		SubThread01 st1 = new SubThread01();
 		st1.start();
@@ -20,6 +20,6 @@ public class ThreadDemo01 {
 		
 		// 获取线程名称的通用方式
 		Thread t = Thread.currentThread();
-		System.out.println(t.getName());
+		System.out.println(t.getName() + "==");
 	}
 }
