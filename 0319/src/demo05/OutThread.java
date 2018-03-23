@@ -2,7 +2,10 @@ package demo05;
 
 public class OutThread implements Runnable{
 	private Resource r;
-
+	public OutThread(Resource r) {
+		this.r = r;
+	}
+	
 	@Override
 	public void run() {
 		while(true) {
@@ -18,6 +21,8 @@ public class OutThread implements Runnable{
 				System.out.println(r.name + "..." + r.sex);
 				
 				// 标记为 false 唤醒对方线程
+//				r.flag = false;
+				r.notify();
 			}
 		}
 	}
