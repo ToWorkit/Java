@@ -1,3 +1,5 @@
+package hdfs01;
+
 /*
  * java -D 命令行获取参数值
  * java -Dname=Tom -Dage=24 System_fun01
