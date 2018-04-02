@@ -9,6 +9,5 @@ public class ScannerCompute01 {
 		System.out.println(i + 1);
 		
 		System.out.println(System.currentTimeMillis());
-		System.out.println(System.currentTimeMillis());
 	}
 }
