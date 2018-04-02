@@ -13,25 +13,25 @@ import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
-public class DataSourcePool implements DataSource {
+public class DataSourcePool01 implements DataSource {
 	
-	
-	// 初始化，创建 十个 链接放入连接池
+	// 初始化，创建10个链接放入连接池
+	// jdbc
 	private static String driver = "com.mysql.jdbc.Driver";
 	private static String url = "jdbc:mysql://192.168.106.11:3306/hive";
 	private static String user = "hiveowner";
 	private static String password = "Password_1";
 	
-	// 定义一个链表来保存 10个 链接
-	private static LinkedList<Connection> dataSource = new LinkedList<Connection>();
-	
-	// 静态代码块，只执行一次
+	// 定义一个链表来保存 10 个链接
+	private static LinkedList<Connection> dataSource = new LinkedList<>();
+	// 静态代码块
 	static {
 		try {
 			// 注册驱动
 			Class.forName(driver);
-			// 创建十个链接
+			
 			for (int i = 0; i < 10; i++) {
+				// jdbc连接
 				dataSource.add(DriverManager.getConnection(url, user, password));
 			}
 		} catch (Exception ex) {
@@ -41,55 +41,49 @@ public class DataSourcePool implements DataSource {
 	
 	@Override
 	public Connection getConnection() throws SQLException {
-/*		// 表示从连接池中获取连接对象
+		// 连接池中有链接
 		if (dataSource.size() > 0) {
-			// 这里返回的链接是真正的对象(实际需要返回的是一个代理对象，并且重写close方法)
 			return dataSource.removeFirst();
 		} else {
 			throw new SQLException("系统忙");
-		}*/
+		}
 		
-		// 改写
-		// 代理增强对象
-		if (dataSource.size() > 0) {
-			// 接收真正的对象
+		/*Exception in thread "main" java.sql.SQLException: 系统忙
+		at com.proxy.mysql.DataSourcePool01.getConnection(DataSourcePool01.java:48)
+		at com.proxy.mysql.TestDataSourceMain01.main(TestDataSourceMain01.java:14)
+		*/
+		
+		// 使用代理增强重写close方法，将链接还回到连接池而非数据库
+/*		if (dataSource.size() > 0) {
+			// 连接池里连接数据库的真正对象
 			Connection conn = dataSource.removeFirst();
-			
-			System.out.println("当前类的加载器" + DataSourcePool.class.getClassLoader());
-			System.out.println("获取该对象所实现的接口" + conn.getClass().getInterfaces());
-			
 			// 生成代理对象
 			Connection proxy = 
-					(Connection) Proxy.newProxyInstance(
-							// 当前类的加载器
-							DataSourcePool.class.getClassLoader(),
-							// 获取该对象所实现的接口(close 方法 等等)
-							conn.getClass().getInterfaces(),
-							// 动态代理对象 -> 在函数执行的前后做操作
-							new InvocationHandler() {
-
-								@Override
-								// 调用
-								public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-									// 重写 conn 的close方法
-									// 判断字符串是否相等(只针对close方法)
-									if (method.getName().equals("close")) {
-										// 将链接还给连接池
-										dataSource.add(conn);
-										System.out.println("还给连接池了");
-										return null;
-									} else {
-										// 其他方法直接调用真正的对象完成
-										return method.invoke(conn, args);
-									}
-								}
-								
+				(Connection) Proxy.newProxyInstance(
+					DataSourcePool01.class.getClassLoader(),
+					conn.getClass().getInterfaces(),
+					new InvocationHandler() {
+	
+						@Override
+						public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+							// 重写close方法
+							if (method.getName().equals("close")) {
+								// 将链接还给连接池而非还给数据库
+								dataSource.add(conn);
+								System.out.println("还给了连接池");
+								return null;
+							} else {
+								// 其他的方法还是调用真正的对象完成就好
+								return method.invoke(conn, args);
 							}
-						);
+						}
+						
+					}
+			);
 			return proxy;
 		} else {
 			throw new SQLException("系统忙");
-		}
+		}*/
 	}
 
 	@Override
@@ -101,13 +95,13 @@ public class DataSourcePool implements DataSource {
 	@Override
 	public void setLogWriter(PrintWriter out) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setLoginTimeout(int seconds) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
