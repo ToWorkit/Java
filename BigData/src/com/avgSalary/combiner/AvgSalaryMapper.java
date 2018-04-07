@@ -12,6 +12,7 @@ public class AvgSalaryMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 	@Override
 	protected void map(LongWritable key1, Text value1, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
 			throws IOException, InterruptedException {
+		
 		// Êý¾Ý  -> 7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30
 		String data = value1.toString();
 		// ·Ö´Ê
