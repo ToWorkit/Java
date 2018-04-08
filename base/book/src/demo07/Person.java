@@ -3,6 +3,7 @@ package demo07;
 public class Person {
 	private String name;
 	private int age;
+	
 	// 无参构造方法
 	public Person() {
 		super();
