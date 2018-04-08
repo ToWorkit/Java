@@ -8,7 +8,7 @@ public class MyBusinessImpl implements MyBusiness {
 
 	@Override
 	public ProtocolSignature getProtocolSignature(String arg0, long arg1, int arg2) throws IOException {
-		// 使用versionID创建 签名
+		// 使用 versionID 创建签名
 		return new ProtocolSignature(MyBusiness.versionID, null);
 	}
 
@@ -21,9 +21,8 @@ public class MyBusinessImpl implements MyBusiness {
 	@Override
 	public String sayHello(String name) {
 		System.out.println("调用到了Server端的方法");
-		// 具体业务的方法
+		// 业务方法
 		return "Hello " + name;
 	}
-	
+
 }
- 
