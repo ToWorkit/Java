@@ -1,6 +1,7 @@
 package demo08;
 
 import java.util.Comparator;
+import java.util.TreeSet;
 
 /*
 TreeSet集合是用来对象元素进行排序的,同样他也可以保证元素的唯一
@@ -12,7 +13,13 @@ TreeSet集合是用来对象元素进行排序的,同样他也可以保证元素的唯一
 public class TreeSet01 {
 	public static void main(String[] args) {
 		// 将字符串按照长度排序
-//		TreeSet<String> ts = new TreeSet<>(new )
+		TreeSet<String> ts = new TreeSet<>(new CompareByLen());
+		ts.add("abcdef");
+		ts.add("abc");
+		ts.add("abcd");
+		ts.add("a");
+		
+		System.out.println(ts);
 	}
 }
 
@@ -23,6 +30,7 @@ class CompareByLen implements Comparator<String> {
 	public int compare(String s1, String s2) {
 		// 按照字符串的长度比较
 		int num = s1.length() - s2.length();
+		// 长度为主内容为次
 		return num == 0 ? s1.compareTo(s2) : num;
 	}
 	
