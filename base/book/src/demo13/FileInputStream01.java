@@ -1,7 +1,11 @@
 package demo13;
 
+
+/*
+ * ¶ÁÊý¾Ý
+ */
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FileInputStream01 {
