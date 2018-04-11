@@ -8,6 +8,8 @@ public class Thread02 {
 
 // 1 定义一个类实现Runnable
 class MyRunnable implements Runnable {
+	
+	// 2 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
