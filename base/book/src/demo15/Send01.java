@@ -10,6 +10,8 @@ import java.net.InetAddress;
  * 创建DatagramPacket, 指定数据，长度，地址，端口
  * 使用DatagramSocket发送DatagramPacket
  * 关闭DatagramSocket
+ * @throws SocketException 
+ * @throws UnknownHostException 
  */
 
 public class Send01 {
@@ -18,8 +20,9 @@ public class Send01 {
 		// 创建Socket相当于创建码头
 		DatagramSocket socket = new DatagramSocket();
 		// 创建Packet相当于集装箱
-		DatagramPacket packet = new DatagramPacket(str.getBytes(), str.getBytes().length, InetAddress.getByName("127.0.0.1"), 6060);
-		
+		DatagramPacket packet = new DatagramPacket(str.getBytes(), str.getBytes().length,
+				InetAddress.getByName("127.0.0.1"), 6060);
+
 		// 发货，将数据发出去
 		socket.send(packet);
 		// 关闭
