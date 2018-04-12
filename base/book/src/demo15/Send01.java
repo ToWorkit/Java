@@ -5,7 +5,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 /*
- * 发送Send
+ * 1. 发送Send
  * 创建DatagramSocket, 随机端口号
  * 创建DatagramPacket, 指定数据，长度，地址，端口
  * 使用DatagramSocket发送DatagramPacket
