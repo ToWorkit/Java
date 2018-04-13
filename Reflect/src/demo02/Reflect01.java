@@ -10,7 +10,11 @@ public class Reflect01 {
 		Juicer j = new Juicer();
 //		j.run(new Apple());
 		BufferedReader br = new BufferedReader(new FileReader("config.properties"));
-		
+		// 获取该类的字节码文件
+		Class cla = Class.forName(br.readLine());
+		// 创建实例对象
+		Fruit f = (Fruit) cla.newInstance();
+		j.run(f);
 	}
 }
 
