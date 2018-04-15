@@ -1,7 +1,6 @@
 package com.core.reflective;
 
 import java.util.Random;
-
 /**
  * 反射
  * 类在一个包里，包的名字也作为类名的一部分
