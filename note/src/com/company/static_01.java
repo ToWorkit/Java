@@ -36,7 +36,6 @@ public class static_01 {
     }
 }
 
-
 class Animal {
 
     // 私有化，防止new
