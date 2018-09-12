@@ -10,6 +10,11 @@ package com.objectP;
  */
 public class equals_obj {
     public static void main(String[] args) {
-
+        // 判断字符串是否包含哪个字符串(不忽略大小写)
+        String s1 = "I Love You";
+        System.out.println(s1.contains("Love"));
+        // startsWith 以什么开头
+        // endsWith 以什么结尾
+        // isEmpty 是否为空
     }
 }
