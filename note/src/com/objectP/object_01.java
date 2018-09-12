@@ -2,7 +2,7 @@ package com.objectP;
 
 public class object_01 {
     public static void main(String[] args) {
-        Student stu = new Student("xx", "china");
+        Student stu = new Student("xx", 12);
         // 默认会调用Object的toString方法
         /**
          * 4554617c 由对象的hashCode的值转成16进制表示
@@ -13,21 +13,30 @@ public class object_01 {
 
         // 重写toString方法
         System.out.println(stu.toString());
+
+        // 重写equals方法
+        Student stu1 = new Student("x", 10);
+        Student stu2 = new Student("x", 11);
+        Student stu3 = new Student("x", 10);
+
+        System.out.println(stu1.equals(stu2));
+        System.out.println(stu1.equals(stu3));
     }
 }
 
 class Student {
     private String name;
     private String country;
+    private int age;
 
     public Student() {
         super();
     }
 
-    public Student(String name, String country) {
+    public Student(String name, int age) {
         super();
         this.name = name;
-        this.country = country;
+        this.age = age;
     }
 
     public String getName() {
@@ -52,5 +61,16 @@ class Student {
                 "name='" + name + '\'' +
                 ", country='" + country + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // 默认父类比较的是两个对象的地址
+        // return super.equals(obj);
+
+        // 1. 将 obj 还原为 Student
+        Student other = (Student)obj;
+        // 2. 比较两个对象的年龄和名字是否一样
+        return this.age == other.age && this.name.equals(other.name);
     }
 }
