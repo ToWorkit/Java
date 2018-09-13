@@ -1,5 +1,9 @@
 package com.objectP;
 
+/**
+ *
+ */
+
 public class string_equals {
     public static void main(String[] args) {
         // 字符串比较
