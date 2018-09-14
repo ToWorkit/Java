@@ -12,9 +12,13 @@ public class StringBuffer_01 {
          *  StringBuffer是线程安全，可以加锁
          */
 
-        StringBuffer sb = new StringBuffer();
+        StringBuffer sb_1 = new StringBuffer();
         // 内部字符数组的初始容量
-        System.out.println(sb.capacity()); // 容量 16
-        System.out.println(sb.length()); // 长度 0
+        System.out.println(sb_1.capacity()); // 容量 16
+        System.out.println(sb_1.length()); // 长度 0
+
+        // 初始化容量
+        StringBuffer sb_2 = new StringBuffer(24);
+        System.out.println(sb_2.capacity()); // 24
     }
 }
