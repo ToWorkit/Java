@@ -55,5 +55,8 @@ public class Collection_02 {
 
         // 集合转数组遍历
         Object[] objects = coll.toArray();
+        for (int i = 0; i < objects.length; i ++) {
+            System.out.println(objects[i]);
+        }
     }
 }
