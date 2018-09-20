@@ -7,6 +7,10 @@ package com.objectP;
 public class equals_string {
     public static void main(String[] args) {
         // 比较字符串
+        test();
+    }
+
+    private static void test() {
         String s1 = "abc";
         String s2 = "ABC";
         String s3 = "abc";
