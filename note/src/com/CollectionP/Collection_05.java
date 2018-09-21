@@ -36,6 +36,14 @@ public class Collection_05 {
         // 替换指定索引的元素
         // set
 
-        
+        // List遍历 size 获取长度，get取值
+        List col2 = new ArrayList();
+        col2.add(new Student("阿天", 12));
+        col2.add(new Student("阿浩", 13));
+        col2.add(new Student("阿美", 11));
+        for (int i = 0; i < col2.size(); i ++) {
+            System.out.println(col2.get(i));
+        }
+
     }
 }
