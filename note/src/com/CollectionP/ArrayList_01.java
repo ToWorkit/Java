@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Collection_05 {
+public class ArrayList_01 {
     public static void main(String[] args) {
         // 创建一个集合对象
         Collection coll = new ArrayList();
