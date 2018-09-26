@@ -4,6 +4,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
+/**
+ * 面试题:HashMap和Hashtable的区别
+ *  1.Hashtable是JDK1.0版本出现的,是线程安全的,效率低,有加锁(看原码)[很少用]
+ *  2.HashMap是JDK1.2版本出现的,是线程不安全的,效率高
+ *  3.Hashtable不可以存储null键和null值
+ *  4.HashMap可以存储null键和null值
+ */
+
 public class Map_01 {
     public static void main(String[] args) {
         HashMap<String, String> hashMap = new HashMap<>();
